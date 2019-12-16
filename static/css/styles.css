@@ -1,10 +1,13 @@
 body{
-  background-image: url("https://pikwizard.com/photos/ca0e9e61d56db1461f0e402386b5c756-m.jpg");
+  background-image: url("https://pikwizard.com/photos/2d287a7c569004af5c18005b9c9c228f-m.jpg");
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1{
   color:aqua;
   text-decoration: underline;
+  font-family: 'Itim', cursive;
 }
 
 
@@ -13,6 +16,7 @@ p {
   animation-name: slidein;
   text-decoration: transparent;
   color: whitesmoke;
+  font-family: 'Itim', cursive;
 }
 
 @keyframes slidein {
