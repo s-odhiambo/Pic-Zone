@@ -16,6 +16,8 @@ import django_heroku
 from decouple import config, Csv  
 # from dotenv import load_dotenv
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+    
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -39,20 +41,19 @@ if config('MODE')=="dev":
 else:
     DATABASES = {
        'default': dj_database_url.config(
-           default=config('HEROKU_POSTGRESQL_PINK_URL')
+           default=config('DATABASE_URL')
        )
     }
 
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # development
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))     
 
 # load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -63,12 +64,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gap=*np6t(u#n$w=))ivadw!l%n3kq8v81wrj_ky2ln!yz%1^k'
+    # SECRET_KEY = 'gap=*np6t(u#n$w=))ivadw!l%n3kq8v81wrj_ky2ln!yz%1^k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+    # DEBUG = True
 
-ALLOWED_HOSTS = []
+    # ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -124,27 +125,33 @@ WSGI_APPLICATION = 'heyapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'pic',
-        'USER':'moringa',
-        'PASSWORD':'12345',
-    }
-}
-{
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-{
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'NAME': 'pic',
+#         'USER':'moringa',
+#         'PASSWORD':'12345',
+#     }
+# }
+# {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+# {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },

@@ -1,5 +1,5 @@
-virtual
-.env
+virtual/
+*.env
 *pyc
 __pycache__
 .vscode
