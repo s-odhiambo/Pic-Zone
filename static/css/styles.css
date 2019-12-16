@@ -22,18 +22,21 @@ p {
 @keyframes slidein {
   from {
     margin-left: 100%;
-    width: 300%; 
+    width: 300%;
+    margin-top: auto; 
   }
 
   75% {
     font-size: 300%;
     margin-left: 25%;
     width: 150%;
+    margin-top: auto;
   }
 
   to {
     margin-left: 0%;
     width: 100%;
+    margin-top: auto;
   }
 }
 

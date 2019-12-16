@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% if title %}
-    <title>Galerie-{{title}}</title>
+    <title style="font-family: 'Itim', cursive;">Galerie-{{title}}</title>
     [% else%]
-    <title> Galerie</title>
+    <title style="font-family: 'Itim', cursive;"> Galerie</title>
     {% endif %}
 
     {% block styles %}
@@ -49,6 +49,9 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
     <script type="text/javascript" src="{% static 'scripts.js' %}"></script>
+    <canvas class="background"></canvas>
+    <script src="path/to/particles.min.js"></script>
+    
     {% bootstrap_javascript %}
     {% endblock %}
 

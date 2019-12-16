@@ -14,7 +14,7 @@ import os
 import dj_database_url  
 import django_heroku  
 from decouple import config, Csv  
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -39,7 +39,7 @@ if config('MODE')=="dev":
 else:
     DATABASES = {
        'default': dj_database_url.config(
-           default=config('HEROKU_POSTGRESQL_OLIVE_URL')
+           default=config('HEROKU_POSTGRESQL_PINK_URL')
        )
     }
 
@@ -84,11 +84,12 @@ INSTALLED_APPS = [
     'bootstrap4',
 ]
 
-MIDDLEWARE_CLASSES = (
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-)
+# MIDDLEWARE_CLASSES = (
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+# )
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -171,11 +172,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
-]
+)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
