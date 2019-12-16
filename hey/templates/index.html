@@ -1,0 +1,55 @@
+{% include 'base.html' %}
+
+{{super}}
+<h1 class="text-center">Welcome to Pic-Zone</h1>
+
+<p class="">Welcome to Pic-zone Best place to see pictures of your desire .</p>
+<div class="container"  >
+    <div class="row">
+
+        {% for data in images %}
+
+      <div class="modal fade" id="basicExampleModal{{data.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{data.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <img class="card-img-top" id="img" class="mode" src="{{data.image.url}}" alt="Card image cap">
+                    <p>Location: {{data.location}} <br> Category: {{data.category}}</p>
+            </div>
+            <div class="modal-footer">
+                <input type="text" value="{{data.image.url}}"id={{data.id}}.url>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-3">
+
+            <div class="card">
+                   <img src ="{{data.image.url}}" class="w-100"  data-toggle="modal" data-target="#basicExampleModal{{data.id}}">
+
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center"><a>{{ data.title}}</a></h4>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        {% endfor %}
+  
+    </div>
+</div>
+
+
+
+
+
+
+

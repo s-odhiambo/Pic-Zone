@@ -1,0 +1,20 @@
+    <nav class="navbar navbar-dark default-color justify-content-between fixed-top">
+        <a class="navbar-brand" href="{% url 'index' %}">Pic-Zone</a>
+        {% for category in categories %}
+        <a class="navbar-brand" href="{% url 'category' category.id %}">
+          <p>{{category.category}}</p>
+          
+        </a>
+        {% endfor %}
+        
+        
+
+        <form class="form-inline my-1" role="search" action="{% url 'search_results' %}">
+          <div class="md-form form-sm my-0">
+            <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search"
+              aria-label="Search" name="searchterm">
+          </div>
+          <button class="btn btn-outline-white btn-sm my-0" type="submit">Search</button>
+        </form>
+      </nav>
+
