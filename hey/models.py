@@ -37,7 +37,7 @@ class Image(models.Model):
     post_date = models.DateTimeField(auto_now_add=True)
     location_item=models.ForeignKey('Location',on_delete=models.CASCADE,)
     category_item=models.ForeignKey('Category',on_delete=models.CASCADE,)
-    image = models.ImageField(upload_to ='images/')
+    image = models.ImageField(upload_to ='images/',default=0)
     
     @classmethod
     def display_all(cls):

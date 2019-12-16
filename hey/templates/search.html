@@ -1,9 +1,22 @@
 {%extends 'base.html' %}
 
 {%block content%}
+
+{%if images%}
+<h1>Found {{images|length}} of searched category</h1>
+{%else%}
+<h1>Found 0 items of searched category</h1>
+{%endif%}
+
+{%if images%}
+
 {%for images in images%}
 
-{{images.title}}
+<img src="{{images.image.url}}" alt="photo">
+
+<h1>{{images.title}}</h1>
+
 
 {%endfor%}
+{%endif%}
 {%endblock%}
