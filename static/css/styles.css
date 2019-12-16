@@ -1,5 +1,6 @@
 body{
-  background-image: url("https://pikwizard.com/photos/07cb84ac924ca6e47d7ac81d505b5ecf-m.jpg");
+  background-image: url("https://pikwizard.com/photos/ca0e9e61d56db1461f0e402386b5c756-m.jpg");
+  background-attachment: fixed;
 }
 h1{
   color:aqua;
@@ -31,5 +32,7 @@ p {
     width: 100%;
   }
 }
+
+
 
 
