@@ -70,4 +70,4 @@
   MIT
 
 ## Contact
-  samuelodhiambo1998@gmail.com
+  Email:samuelodhiambo1998@gmail.com
